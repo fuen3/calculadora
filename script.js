@@ -1,3 +1,4 @@
+let resultado2 = document.getElementById("resultado2")
 let resultado = document.getElementById("resultado")
 let btn1 = document.getElementById("btn-num1")
 let btn2 = document.getElementById("btn-num2")
@@ -20,47 +21,56 @@ let numero2 = 0;
 let operacion = "";
 let total = 0;
 
-btn1.onclick = () =>{resultado.textContent = resultado.textContent +"1"}
-btn2.onclick = () =>{resultado.textContent = resultado.textContent +"2"}
-btn3.onclick = () =>{resultado.textContent = resultado.textContent +"3"}
-btn4.onclick = () =>{resultado.textContent = resultado.textContent +"4"}
-btn5.onclick = () =>{resultado.textContent = resultado.textContent +"5"}
-btn6.onclick = () =>{resultado.textContent = resultado.textContent +"6"}
-btn7.onclick = () =>{resultado.textContent = resultado.textContent +"7"}
-btn8.onclick = () =>{resultado.textContent = resultado.textContent +"8"}
-btn9.onclick = () =>{resultado.textContent = resultado.textContent +"9"}
-btn0.onclick = () =>{resultado.textContent = resultado.textContent +"0"}
+btn1.onclick = () =>{resultado2.textContent = resultado2.textContent +"1"}
+btn2.onclick = () =>{resultado2.textContent = resultado2.textContent +"2"}
+btn3.onclick = () =>{resultado2.textContent = resultado2.textContent +"3"}
+btn4.onclick = () =>{resultado2.textContent = resultado2.textContent +"4"}
+btn5.onclick = () =>{resultado2.textContent = resultado2.textContent +"5"}
+btn6.onclick = () =>{resultado2.textContent = resultado2.textContent +"6"}
+btn7.onclick = () =>{resultado2.textContent = resultado2.textContent +"7"}
+btn8.onclick = () =>{resultado2.textContent = resultado2.textContent +"8"}
+btn9.onclick = () =>{resultado2.textContent = resultado2.textContent +"9"}
+btn0.onclick = () =>{resultado2.textContent = resultado2.textContent +"0"}
 
 
 function Limpiar(){
-    resultado.textContent = ""
+    resultado2.textContent = ""
     numero1 = 0;
     numero2 = 0;
     operacion = "";
     total = 0;
+    resultado.textContent ="";
 }
 
 borrar.onclick = () =>{Limpiar()}
 
 mas.onclick = () =>{
-    numero1 = resultado.textContent;
+    numero1 = resultado2.textContent;
+    resultado.textContent = `${numero1}+`
     operacion  = "+";
+    resultado2.textContent = ""
 }
 menos.onclick = () =>{
-    numero1 = resultado.textContent;
+    numero1 = resultado2.textContent;
+    resultado.textContent = `${numero1}-`
     operacion  = "-";
+    resultado2.textContent = ""
 }
 multi.onclick = () =>{
-    numero1 = resultado.textContent;
+    numero1 = resultado2.textContent;
+    resultado.textContent = `${numero1}*`
     operacion  = "*";
+    resultado2.textContent = ""
 }
 divi.onclick = () =>{
-    numero1 = resultado.textContent;
+    numero1 = resultado2.textContent;
+    resultado.textContent = `${numero1}/`
     operacion  = "/";
+    resultado2.textContent = ""
 }
 
 calc.onclick = () =>{
-    numero2 = resultado.textContent;
+    numero2 = resultado2.textContent;
     Calcular();
 }
 
@@ -68,19 +78,23 @@ function Calcular(){
     switch (operacion){
         case "+":
             total = parseFloat(numero1) + parseFloat(numero2)
-            resultado.textContent = total;
+            resultado2.textContent = total;
+            resultado.textContent += numero2
             break;
         case "-":
             total = parseFloat(numero1) - parseFloat(numero2)
-            resultado.textContent = total;
+            resultado2.textContent = total;
+            resultado.textContent += numero2
             break;
         case "/":
             total = parseFloat(numero1) / parseFloat(numero2)
-            resultado.textContent = total;
+            resultado2.textContent = total;
+            resultado.textContent += numero2
             break;
         case "*":
             total = parseFloat(numero1) * parseFloat(numero2)
-            resultado.textContent = total;
+            resultado2.textContent = total;
+            resultado.textContent += numero2
             break;       
     }
 }
